@@ -3,10 +3,10 @@ const mysql = require('mysql2');
 
 
 const db = mysql.createConnection({
-    host: 'mysql-danielprg.alwaysdata.net',
-    user: 'danielprg', 
-    password: 'damispi1010', 
-    database: 'danielprg_vivienda'
+    host: ,
+    user: ,
+    password: ,
+    database: ,
    
 });
 
