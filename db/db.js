@@ -3,11 +3,10 @@ const mysql = require('mysql2');
 
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'DanielSpinella', 
-    password: 'Damispi2525', 
-    database: 'viviendas_db'
-   
+    host: ,
+    user: ,
+    password: ,
+    database: , 
 });
 
 db.connect((err) => {
