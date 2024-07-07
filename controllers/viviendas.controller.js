@@ -32,8 +32,9 @@ const show=(req, res) => {
 };
 const store=(req, res) => {
     const { mcuadrados, valorm2, calle, numero, ciudad, provincia } = req.body;
-    const sql = 'INSERT INTO viviendas (mcuadrados, valorm2, calle, numero, ciudad, provincia) VALUES (?, ?, ?, ?, ?, ?)';
-    db.query(sql, [mcuadrados, valorm2, calle, numero, ciudad, provincia], (err, result) => {
+    const imagen = req.file ? req.file.filename : null;
+    const sql = 'INSERT INTO viviendas (mcuadrados, valorm2, calle, numero, ciudad, provincia,imagen) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    db.query(sql, [mcuadrados, valorm2, calle, numero, ciudad, provincia,imagen], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
@@ -43,9 +44,10 @@ const store=(req, res) => {
 
 const update=(req, res) => {
     const { id } = req.params;
-    const { mcuadrados, valorm2, calle, numero, ciudad, provincia } = req.body;
-    const sql = 'UPDATE viviendas SET mcuadrados = ?, valorm2 = ?, calle = ?, numero = ?, ciudad = ?, provincia = ? WHERE idvivienda = ?';
-    db.query(sql, [mcuadrados, valorm2, calle, numero, ciudad, provincia, id], (err, result) => {
+    const imagen = req.file ? req.file.filename : null;
+    const { mcuadrados, valorm2, calle, numero, ciudad, provincia} = req.body;
+    const sql = 'UPDATE viviendas SET mcuadrados = ?, valorm2 = ?, calle = ?, numero = ?, ciudad = ?, provincia = ?, imagen=? WHERE idvivienda = ?';
+    db.query(sql, [mcuadrados, valorm2, calle, numero, ciudad, provincia,imagen, id], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
